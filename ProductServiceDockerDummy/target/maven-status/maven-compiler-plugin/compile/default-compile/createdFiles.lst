@@ -1,0 +1,6 @@
+com\nagarro\product\dao\ProductDao.class
+com\nagarro\product\ProductServiceDockerDummyApplication.class
+com\nagarro\product\service\ProductService.class
+com\nagarro\product\controller\ProductController.class
+com\nagarro\product\config\RedisConfig.class
+com\nagarro\product\model\Product.class
