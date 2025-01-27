@@ -1,0 +1,26 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    - name: Docker Login
+      uses: docker/login-action@v3.3.0
+      with:
+        username: ${{vars.DOCKERHUB_USERNAME}}
+        password: ${{secrets.DOCKERHUB_TOKEN}}
+    - name: Build the Docker image
+      run: |
+        docker build . --file ProductServiceDockerDummy/Dockerfile --tag rishabhgupta130/adv-springboot-api-repo:$(date +%s)
+        docker push rishabhgupta130/adv-springboot-api-repo
