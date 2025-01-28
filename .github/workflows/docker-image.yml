@@ -22,5 +22,5 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
     - name: Build the Docker image
       run: |
-        docker build . --file ProductServiceDockerDummy/Dockerfile --tag rishabhgupta130/adv-springboot-api-repo:$(date +%s)
+        docker build ./ProductServiceDockerDummy --file ProductServiceDockerDummy/Dockerfile --tag rishabhgupta130/adv-springboot-api-repo:$(date +%s)
         docker push rishabhgupta130/adv-springboot-api-repo
