@@ -20,7 +20,15 @@ jobs:
       with:
         username: ${{vars.DOCKERHUB_USERNAME}}
         password: ${{secrets.DOCKERHUB_TOKEN}}
-    - name: Build the Docker image
+    - name: Build the Spring Boot Application Docker image
       run: |
         docker build ./ProductServiceDockerDummy --file ProductServiceDockerDummy/Dockerfile --tag rishabhgupta130/adv-springboot-api-repo:latest
         docker push rishabhgupta130/adv-springboot-api-repo
+    - name: Build the Postgres Database Docker image
+      run: |
+        docker build ./Database Postgres --file Database Postgres/Dockerfile --tag rishabhgupta130/custompostgres-repo:latest
+        docker push rishabhgupta130/custompostgres-repo
+    - name: Build the Redis Cache Docker image
+      run: |
+        docker build ./Redis Cache --file Redis Cache/Dockerfile --tag rishabhgupta130/customredis-repo:latest
+        docker push rishabhgupta130/customredis-repo
