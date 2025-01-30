@@ -23,4 +23,13 @@ public class ProductService {
 		return products;
 	}
 
+	public void addProduct(Product product) {
+		Product pro = new Product();
+		pro.setProduct_description(product.getProduct_description());
+		pro.setProduct_name(product.getProduct_name());
+		pro.setProduct_quantity(product.getProduct_quantity());
+		productDao.save(pro);
+		
+	}
+
 }
